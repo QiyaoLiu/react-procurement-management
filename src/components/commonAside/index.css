@@ -1,0 +1,15 @@
+.ant-menu-item-selected {
+  background-color: #5c8374 !important;
+  color: #fff !important;
+}
+.ant-menu-dark .ant-menu-item-active:hover {
+  background-color: #1b4242 !important;
+  color: #fff !important;
+}
+
+.app-name {
+  background-color: #092635;
+}
+.ant-menu {
+  background-color: #092635;
+}

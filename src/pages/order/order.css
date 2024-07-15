@@ -1,0 +1,6 @@
+.order .flex-box {
+  display: flex;
+}
+.order .space-between {
+  justify-content: space-between;
+}

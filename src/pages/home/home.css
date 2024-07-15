@@ -1,0 +1,40 @@
+.num {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.num .ant-card {
+  width: calc(50% - 16px);
+  margin: 10px 5px;
+}
+
+.num .ant-card-body {
+  display: flex;
+  padding: 10px 25px;
+}
+.num .icon-box {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 85px;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.anticon {
+  font-size: 30px;
+}
+
+.num .detail {
+  margin-left: 20px;
+}
+.num .detail .num {
+  font-size: 30px;
+  /* margin-bottom: 10px; */
+}
+.num .detail .txt {
+  font-size: 15px;
+  text-align: center;
+  color: #999999;
+}
