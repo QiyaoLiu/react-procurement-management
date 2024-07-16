@@ -1,3 +1,4 @@
+/* Reset CSS */
 html,
 body,
 div,
@@ -87,6 +88,7 @@ video {
   vertical-align: baseline;
   box-sizing: border-box;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -101,67 +103,59 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
+  width: 100%;
+  background-color: #f5f5f5;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
   content: "";
-  content: none;
 }
+
 a,
 a:hover {
   color: inherit;
   text-decoration: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-html,
-body {
-  width: 100%;
-  /* height: 100%; */
-  background-color: #f5f5f5;
-  /* font-family: "PingFangSC-Light", "PingFang SC", "STHeitiSC-Light",
-    "Helvetica-Light", "Arial", "sans-serif"; */
-  font-family: "STHeitiSC-Light", "Helvetica-Light", "Arial", "sans-serif";
-}
 
+/* Utility Classes */
 .fl {
   float: left;
 }
+
 .fr {
   float: right;
-  .button-group-item {
-    padding-left: 3px;
-  }
 }
 
-.clearfix {
-  zoom: 1;
-  &:after {
-    display: block;
-    clear: both;
-    content: "";
-    visibility: hidden;
-    height: 0;
-  }
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
+
+/* Main Container */
 .main-container {
   min-height: calc(100vh - 64px);
-}
-.main-container {
   background-color: #001529;
   text-align: center;
   color: #fff;
@@ -170,20 +164,24 @@ body {
   font-size: 16px;
 }
 
+/* App Name */
 .app-name {
-  background-color: #001529;
+  background-color: #092635;
   text-align: center;
   color: #fff;
   line-height: 60px;
   font-weight: bold;
-  font-size: 18px;
-}
-.ant-pagination .ant-pagination-item-active {
-  border-color: #5c8374;
-  color: 1B4242;
+  font-size: 15px;
 }
 
-.ant-pagination .ant-pagination-item-active a {
+/* Ant Design Overrides */
+.ant-pagination .ant-pagination-item-active {
+  border-color: #5c8374;
+  color: #1b4242;
+}
+
+.ant-pagination .ant-pagination-item-active a,
+.ant-pagination .ant-pagination-item-active:hover a {
   border-color: #5c8374;
   color: #5c8374;
 }
@@ -193,15 +191,7 @@ body {
   color: #5c8374;
 }
 
-.ant-pagination .ant-pagination-item-active:hover a {
-  border-color: #5c8374;
-  color: #5c8374;
-}
-
-.ant-input:focus {
-  border-color: #5c8374;
-}
-
+.ant-input:focus,
 .ant-input:hover {
   border-color: #5c8374;
 }
