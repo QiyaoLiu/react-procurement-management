@@ -25,8 +25,9 @@ For the frontend part of this project, please visit [https://github.com/qiyao-li
 
 ## Screenshots
 
-![Screenshot 1](/path/to/screenshot1.png)
-![Screenshot 2](/path/to/screenshot2.png)
+![Screenshot 1](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_home.png)
+![Screenshot 2](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_order_management.png)
+![Screenshot 3](https://github.com/qiyao-liu/react-procurement-management/tree/main/screenshots)
 
 ## Installation
 
