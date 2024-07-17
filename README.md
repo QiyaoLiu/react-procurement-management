@@ -1,33 +1,19 @@
 # Procurement Management
 
-A brief description of what the project does.
-
-
-## Backend Repository
-
-For the frontend part of this project, please visit [https://github.com/qiyao-liu/springboot-procurement-management]().
-
+Welcome to the the frondend part of Procurement Management System, a project aimed at facilitating CRUD operations for supplier information and purchasing orders using React. For the backend part of this project, please visit [https://github.com/qiyao-liu/springboot-procurement-management]().
 
 ## Technologies Used
 
 - **Frontend Framework:** React
 - **State Management:** Redux
-- **Styling:** Styled Components
 - **API Integration:** Axios
 - **Routing:** React Router
-
-## Features
-
-- CRUD Operations: Complete CRUD operations for managing suppliers and purchasing orders (Create, Read, Update, Delete).
-- Dashboard Insights: Provides insights into monthly activities related to suppliers and orders.
-- Responsive UI: Designed with responsiveness in mind, ensuring a user-friendly experience across devices.
-- RESTful API Integration: Utilizes RESTful APIs to communicate with the backend server for seamless data retrieval and management.
 
 ## Screenshots
 
 ![Screenshot 1](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_home.png)
-![Screenshot 2](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_order_management.png)
-![Screenshot 3](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_supplier_management.png)
+![Screenshot 2](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_supplier_management.png)
+![Screenshot 3](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_order_management.png)
 
 ## Installation
 
@@ -37,11 +23,6 @@ To run this project locally, follow these steps:
 2. Navigate to the project directory.
 3. Install dependencies with `npm install`.
 4. Start the development server with `npm start`.
-
-## Usage
-
-Describe how to use your application. Provide examples if needed.
-
 
 # Getting Started with Create React App
 

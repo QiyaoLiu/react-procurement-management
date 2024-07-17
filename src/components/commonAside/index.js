@@ -19,14 +19,14 @@ const MenuConfig = [
   {
     path: "/supplier",
     name: "supplier",
-    label: "supplier management",
+    label: "supplier",
     icon: "UserOutlined",
     url: "/supplier/index",
   },
   {
     path: "/order",
     name: "order",
-    label: "order management",
+    label: "purchase order",
     icon: "ShopOutlined",
     url: "/order/index",
   },
