@@ -1,4 +1,5 @@
 import axios from "axios";
+import { message } from "antd";
 
 const baseUrl = "/api";
 
@@ -33,16 +34,54 @@ class HttpRequest {
       }
     );
 
+    // Response Interceptor
+    // instance.interceptors.response.use(
+    //   (response) => response,
+    //   (error) => {
+    //     if (error.response) {
+    //       const { status, data } = error.response;
+
+    //   if (status === 401) {
+    //     localStorage.removeItem("token");
+    //     if (window.location.pathname !== "/login") {
+    //       window.location.href = "/login";
+    //     }
+    //   } else {
+    //     // Show error message from backend
+    //     message.error(data.msg || "An error occurred. Please try again.");
+    //   }
+
+    //   return Promise.reject(data);
+    // } else {
+    //   // Handle network or other errors
+    //   message.error("Network error. Please check your connection.");
+    //   return Promise.reject(error);
+    // Add a response interceptor
     // Add a response interceptor
     instance.interceptors.response.use(
-      function (response) {
-        // Any status code that lies within the range of 2xx causes this function to trigger
-        return response;
-      },
-      function (error) {
-        if (error.response.status === 401) {
-          localStorage.removeItem("token");
-          window.location.href = "/login";
+      (response) => response,
+      (error) => {
+        const { response } = error;
+        if (response) {
+          const { status, data } = response;
+
+          if (status === 401) {
+            // Handle token expiration or invalid token
+            localStorage.removeItem("token");
+            if (window.location.pathname !== "/login") {
+              window.location.href = "/login";
+            }
+          } else {
+            // Show error message from backend
+            const errorMessage =
+              data.msg || "An unexpected error occurred. Please try again.";
+            message.error(errorMessage);
+          }
+        } else {
+          // Handle network errors or other issues
+          message.error(
+            "Failed to connect to the server. Please check your connection."
+          );
         }
         return Promise.reject(error);
       }
@@ -50,11 +89,8 @@ class HttpRequest {
   }
 
   request(options) {
-    options = { ...this.getInsideConfig(), ...options };
-    const instance = axios.create();
-
+    const instance = axios.create(this.getInsideConfig());
     this.intercept(instance);
-
     return instance(options);
   }
 }

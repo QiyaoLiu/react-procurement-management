@@ -65,7 +65,7 @@ export const updateSupplier = (data) => {
 
 export const delSupplier = (id) => {
   return http.request({
-    url: `/suppliers/{id}`,
+    url: `/suppliers/${id}`,
     method: "delete",
   });
 };
@@ -98,7 +98,7 @@ export const updateOrder = (data) => {
 
 export const delOrder = (id) => {
   return http.request({
-    url: `/order/${id}`,
+    url: `/orders/${id}`,
     method: "delete",
   });
 };

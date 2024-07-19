@@ -22,20 +22,28 @@ const Login = () => {
     }
 
     try {
-      const { data } = await getPermission(values); // Await the API call
+      const { data, status } = await getPermission(values);
 
-      if (data.code === 1) {
-        localStorage.setItem("token", data.data); // Store the token
-        navigate("/home"); // Navigate to home on successful login
+      if (status === 200) {
+        if (data.code === 1) {
+          localStorage.setItem("token", data.data); // Store the token
+          navigate("/home"); // Navigate to home on successful login
+        } else {
+          message.error(
+            data.msg || "Unexpected error occurred. Please try again."
+          );
+        }
       } else {
-        message.error(data.msg); // Show error message from API
+        // Handle cases where the response status is not 200 OK
+        message.error("Unexpected error occurred. Please try again.");
       }
     } catch (error) {
       console.error("Login error:", error);
-      message.error("Failed to login. Please try again later."); // Show generic error message
+      const errorMessage =
+        error.response?.data?.msg || "Failed to login. Please try again later.";
+      message.error(errorMessage);
     }
   };
-
   return (
     <Form className="login-container" onFinish={handleSubmit}>
       <div className="login_title">System Login</div>

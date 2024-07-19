@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Input, Table, Popconfirm, Modal } from "antd";
+import { Button, Form, Input, Table, Popconfirm, Modal, message } from "antd";
 import "./supplier.css";
 import {
   getSupplier,
@@ -61,24 +61,51 @@ const Supplier = () => {
     }
   };
 
+  // const handleOk = () => {
+  //   form
+  //     .validateFields()
+  //     .then((values) => {
+  //       if (modalType === 1) {
+  //         updateSupplier(values).then(() => {
+  //           handleCancel();
+  //           getTableData();
+  //         });
+  //       } else {
+  //         addSupplier(values).then(() => {
+  //           handleCancel();
+  //           getTableData();
+  //         });
+  //       }
+  //     })
+  //     .catch((errorInfo) => {
+  //       console.error("Validation failed:", errorInfo);
+  //     });
+  // };
   const handleOk = () => {
     form
       .validateFields()
       .then((values) => {
-        if (modalType === 1) {
-          updateSupplier(values).then(() => {
-            handleCancel();
-            getTableData();
+        // Decide whether to add or update based on modalType
+        const apiCall =
+          modalType === 1 ? updateSupplier(values) : addSupplier(values);
+
+        // Make API call and handle response
+        apiCall
+          .then(() => {
+            handleCancel(); // Close modal on success
+            getTableData(); // Refresh table data
+          })
+          .catch((error) => {
+            // Handle error
+            console.error("API call failed:", error);
+            // Error message will be handled by Axios interceptor
+            // No need to display message here
           });
-        } else {
-          addSupplier(values).then(() => {
-            handleCancel();
-            getTableData();
-          });
-        }
       })
       .catch((errorInfo) => {
+        // Handle form validation errors
         console.error("Validation failed:", errorInfo);
+        message.error("Please correct the errors in the form.");
       });
   };
 
@@ -123,7 +150,13 @@ const Supplier = () => {
             Edit
           </Button>
           <Popconfirm
-            title="Do you really want to delete this supplier?"
+            title={
+              <>
+                Do you really want to delete this supplier?
+                <br />
+                Purchase orders from this supplier will also be deleted.
+              </>
+            }
             okText="Confirm"
             okButtonProps={{
               style: { backgroundColor: "#FF4C4C", borderColor: "##FF4C4C" },
