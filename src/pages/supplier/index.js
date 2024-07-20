@@ -61,26 +61,6 @@ const Supplier = () => {
     }
   };
 
-  // const handleOk = () => {
-  //   form
-  //     .validateFields()
-  //     .then((values) => {
-  //       if (modalType === 1) {
-  //         updateSupplier(values).then(() => {
-  //           handleCancel();
-  //           getTableData();
-  //         });
-  //       } else {
-  //         addSupplier(values).then(() => {
-  //           handleCancel();
-  //           getTableData();
-  //         });
-  //       }
-  //     })
-  //     .catch((errorInfo) => {
-  //       console.error("Validation failed:", errorInfo);
-  //     });
-  // };
   const handleOk = () => {
     form
       .validateFields()
