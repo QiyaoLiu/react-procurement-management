@@ -8,6 +8,11 @@ Welcome to the the frondend part of Procurement Management System, a project aim
 - **State Management:** Redux
 - **API Integration:** Axios
 - **Routing:** React Router
+- **UI Library:** Ant Design
+
+## Features
+
+- **Layout:**
 
 ## Screenshots
 
