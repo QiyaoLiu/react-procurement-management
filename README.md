@@ -16,9 +16,10 @@ Welcome to the the frondend part of Procurement Management System, a project aim
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_home.png)
-![Screenshot 2](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_supplier_management.png)
-![Screenshot 3](https://github.com/qiyao-liu/react-procurement-management/blob/main/screenshots/screenshot_order_management.png)
+![Screenshot 1](https://github.com/QiyaoLiu/react-procurement-management/blob/main/screenshots/screenshot_login.png)
+![Screenshot 2](https://github.com/QiyaoLiu/react-procurement-management/blob/main/screenshots/screenshot_home.png)
+![Screenshot 3](https://github.com/QiyaoLiu/react-procurement-management/blob/main/screenshots/screenshot_supplier_management.png)
+![Screenshot 4](hhttps://github.com/QiyaoLiu/react-procurement-management/blob/main/screenshots/screenshot_order_management.png)
 
 ## Installation
 
