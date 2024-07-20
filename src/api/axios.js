@@ -34,30 +34,6 @@ class HttpRequest {
       }
     );
 
-    // Response Interceptor
-    // instance.interceptors.response.use(
-    //   (response) => response,
-    //   (error) => {
-    //     if (error.response) {
-    //       const { status, data } = error.response;
-
-    //   if (status === 401) {
-    //     localStorage.removeItem("token");
-    //     if (window.location.pathname !== "/login") {
-    //       window.location.href = "/login";
-    //     }
-    //   } else {
-    //     // Show error message from backend
-    //     message.error(data.msg || "An error occurred. Please try again.");
-    //   }
-
-    //   return Promise.reject(data);
-    // } else {
-    //   // Handle network or other errors
-    //   message.error("Network error. Please check your connection.");
-    //   return Promise.reject(error);
-    // Add a response interceptor
-    // Add a response interceptor
     instance.interceptors.response.use(
       (response) => response,
       (error) => {
