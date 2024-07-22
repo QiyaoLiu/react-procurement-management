@@ -55,7 +55,11 @@ const Login = () => {
         <Input.Password placeholder="Please enter password" />
       </Form.Item>
       <Form.Item className="login-button">
-        <Button type="primary" htmlType="submit">
+        <Button
+          type="primary"
+          htmlType="submit"
+          style={{ backgroundColor: "#5C8374" }}
+        >
           Login
         </Button>
       </Form.Item>

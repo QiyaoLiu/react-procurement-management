@@ -10,3 +10,18 @@
 .ant-menu {
   background-color: #092635;
 }
+
+.app-name {
+  color: white;
+  text-align: center;
+  padding: 6px;
+  font-size: 16px;
+}
+
+.ant-layout-sider {
+  background: #092635; /* Ant Design default dark theme background */
+}
+
+.ant-menu-item {
+  white-space: nowrap; /* Prevent text wrapping */
+}

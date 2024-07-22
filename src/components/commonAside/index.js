@@ -6,8 +6,6 @@ import "./index.css";
 
 const { Sider } = Layout;
 
-const iconToElement = (name) => React.createElement(Icon[name]);
-
 const MenuConfig = [
   {
     path: "/home",
@@ -32,17 +30,21 @@ const MenuConfig = [
   },
 ];
 
-const items = MenuConfig.map((icon) => {
+// Function to create an icon element
+const iconToElement = (name) => React.createElement(Icon[name]);
+
+// Create menu items from MenuConfig
+const items = MenuConfig.map((item) => {
   const child = {
-    key: icon.path,
-    icon: iconToElement(icon.icon),
-    label: icon.label,
+    key: item.path,
+    icon: iconToElement(item.icon),
+    label: item.label,
   };
-  if (icon.childern) {
-    child.children = icon.children.map((item) => {
+  if (item.children) {
+    child.children = item.children.map((subItem) => {
       return {
-        key: item.path,
-        label: item.label,
+        key: subItem.path,
+        label: subItem.label,
       };
     });
   }
@@ -54,14 +56,16 @@ const CommonAside = ({ collapsed }) => {
 
   console.log(collapsed, "commenAside");
 
-  const selectMenu = (e) => {
-    console.log(e);
-    navigate(e.key);
+  const selectMenu = (item) => {
+    console.log(item);
+    navigate(item.key);
   };
 
   return (
-    <Sider trigger={null} collapsed={collapsed} width={230} collapsedWidth={50}>
-      <h3 className="app-name">{collapsed ? "" : "procurement management"}</h3>
+    <Sider trigger={null} collapsed={collapsed} width={250} collapsedWidth={80}>
+      <h3 className="app-name">
+        {collapsed ? "PM" : "procurement management"}
+      </h3>
       <Menu
         theme="dark"
         mode="inline"

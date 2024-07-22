@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Button, Layout, Avatar, Dropdown } from "antd";
 import "./index.css";
 import { MenuFoldOutlined, UserOutlined } from "@ant-design/icons";
@@ -10,28 +10,33 @@ const { Header } = Layout;
 
 const CommonHeader = ({ collapsed }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const logout = () => {
-    //clear the token
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+  const logout = useCallback(() => {
+    try {
+      // Clear the token
+      localStorage.removeItem("token");
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  }, [navigate]);
 
   const items = [
     {
       key: "1",
       label: (
-        <a onClick={() => logout()} target="_blank" rel="noopener noreferrer">
+        <a onClick={logout} href="#" rel="noopener noreferrer">
           log out
         </a>
       ),
     },
   ];
-  const dispatch = useDispatch();
-  const setCollapsed = () => {
-    console.log(collapsed);
+
+  const setCollapsed = useCallback(() => {
     dispatch(collapseMenu());
-  };
+  }, [dispatch]);
+
   return (
     <Header className="header-container">
       <Button
