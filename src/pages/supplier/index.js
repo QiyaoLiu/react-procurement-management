@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Button, Form, Input, Table, Popconfirm, Modal, message } from "antd";
 import "./supplier.css";
 import {
@@ -24,12 +24,7 @@ const Supplier = () => {
     total: 0, // Initial total count, should be updated after fetching data
   });
 
-  useEffect(() => {
-    console.log("Fetching data with listData:", listData);
-    getTableData();
-  }, [listData]);
-
-  const getTableData = () => {
+  const getTableData = useCallback(() => {
     getSupplier(listData)
       .then(({ data }) => {
         setTableData(data.data.rows);
@@ -42,7 +37,12 @@ const Supplier = () => {
       .catch((error) => {
         console.error("Error fetching table data:", error);
       });
-  };
+  }, [listData, pagination]);
+
+  useEffect(() => {
+    console.log("Fetching data with listData:", listData);
+    getTableData();
+  }, [listData, getTableData]);
 
   const handleFinish = (values) => {
     console.log("Search submitted with values:", values);
